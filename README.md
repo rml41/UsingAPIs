@@ -1,7 +1,7 @@
 ---
 Title: Web Services and APIs
 Author: John Fay
-Date: Fall 2017
+Date: Fall 2019
 ---
 
 [TOC]
@@ -13,11 +13,12 @@ In 2003 I attended an ESRI workshop at a Hyatt Hotel in downtown San Francisco. 
 Now, of course, high speed internet access is almost taken for granted. If you don’t have a smartphone, tablet, or ultraportable laptop with a data plan, then it’s likely that a free Wi-Fi hotspot is not too far away. And the data transfer speeds are far superior to what was available a decade ago. What was lacking in the ESRI presentation I attended years ago is now abundant, and what we see is a huge growth in web-enabled or “cloud-based” computing. 
 
 The impact on spatial analysis is that we no longer need local copies of data on our machines to run analyses. Instead, we can simply connect to various data sources located on remote servers and query, clip, overlay, or mask these datasets directly. This offers the huge advantage of centralized management of these datasets; with everyone tapping into the same central dataset, you ensure that edits to the dataset are propagated to all users. It also makes doing spatial analyses on local machines much more lightweight since we don’t have to download entire datasets just to do analyses that require a small section of them.
+
 In the past few years, however, servers have been going beyond just providing live links to data: they are now providing services. In other words, instead of using the tools contained in desktop ArcGIS we can use tools served up in the Cloud. If we want to calculate the average slope within a specified distance of certain streams, we can instruct a set of servers to find the elevation and stream data, to buffer the stream, calculate the slope with that buffered distance and report the average. All the processing is done on the server(s) hosting the service, meaning we don’t even need a beefy computer to get it done; a smart phone will do! 
 
 In this tutorial we explore the application of web services to spatial analysis. It’s an exciting and rapidly evolving field: what’s “cutting edge” this year is likely to be old news the next. However, getting in on this technology at an early stage should provide you with a more robust understanding of how it works and thus how you can utilize its power most effectively. At this stage in the development of web services and cloud-based GIS, however, you’ll need to be prepared for bugs and limited documentation. It’s all part of the excitement of being at the forefront of technology. 
 
-In this tutorial we begin simply, looking at web services from within web browsers. From there we explore how these services can be controlled via scripts (e.g. Python). Then we examine more advanced interfaces to web services, i.e. via APIs and applications that are integrated with web services (e.g. ArcGIS.com and Desktop ArcGIS). 
+Here, we begin simply, looking at web services from within web browsers. From there we explore how these services can be controlled via scripts (e.g. Python). Then we examine more advanced interfaces to web services, i.e. via APIs and applications that are integrated with web services (e.g. ArcGIS.com and Desktop ArcGIS). 
 
 
 
@@ -87,7 +88,7 @@ I've created a few notebooks demonstrating these concepts. These are found in th
 
 * `1-NWIS-discharge-data-as-API.ipynb` - This reveals a cleaner way to access the NWIS data, this time as a Web Service vs just an URL. When you've finished examining this example, have a look at the ArcMap document in the zipped Discharge workspace in this repository. It demonstrates how this can be used programmatically to display data in ArcMap. 
 
-  ​
+  
 
 * `2-Exploring-the-BISON-API` - This explores a more formally presented API, i.e., the USGS's Biodiversity 
 
@@ -104,10 +105,9 @@ Information Serving Our Nation, or "BISON", API. This web service is a touch mor
 
 The procedure of sending requests from client to server via URLs or web addresses actually has a formal name: **Re**presentational **S**tate **T**ransfer, or **REST**. While fancier attempts to convey information and objects across the web using HTTP have been used (e.g. SOAP and WSDL), REST’s approach of using simple text – sometimes taking the form of complex, but parse-able XML or JSON objects – has proven both simple and effective. 
 
-- [ ] If you are curious, an excellent non-technical description of what REST is provided here: http://duke.edu/~jpfay/REST.html*. But really it’s just what we’ve been doing: sending commands to a server via a URL. 
-
-      *this is a pilfer from Ryan Tomyko’s original post found [here](http://2ndscale.com/rtomayko/2004/rest-to-my-wife); please note why he took his original post down…
-
+> If you are curious, an excellent non-technical description of what REST is provided here: http://duke.edu/~jpfay/REST.html*. But really it’s just what we’ve been doing: sending commands to a server via a URL. 
+>
+> _*this takes from Ryan Tomyko’s original post which has since been removed; Tomyko removed the original post as he was getting comments the the post sounded condescending to his wife…([source](http://web.archive.org/web/20140126143651/http://tomayko.com/writings/rest-to-my-wife))_
 ESRI has fully embraced REST as a format for interacting with ArcGIS based web services and over the past few years (and versions of ArcGIS) has integrated more and more cloud-based technology into their software – much of it using REST-based we services. 
 
 Let’s examine how these resources are put to use…
@@ -141,7 +141,7 @@ At the bottom of the map service page is a list of the supported operations on t
 Try filling out the form like this (below) and the click “Export Map Image (GET)”
 (the coordinates are -79.3, 35, -77.9, 36.5)
 
-![arcgis_export_dialog](https://env859.github.io/UsingAPIs/arcgis_export_dialog.png)
+![arcgis_export_dialog](./arcgis_export_dialog.png)
 
 You’ll see an image zoomed to the Upper Neuse HUC. Also, in
 the URL of the page created contains the REST format request, which can be
@@ -187,12 +187,12 @@ http://wiki.openstreetmap.org/wiki/Nominatim
 
 #### Geocoding with the OpenStreetMap (OSM) Geocoder
 
-<--See the Geocoding-with-OSM Jupyter notebook-->
+<--See the [Geocoding-with-OSM Jupyter notebook](https://nbviewer.jupyter.org/github/ENV859/UsingAPIs/blob/master/5a-Geocoding-With-OSM.ipynb)--> 
 
 
 
 ## Recap & what's next
 
-Knowing Python has opened many doors for accessing and analyzing data. The built-in Python data types  - numbers, strings, lists, dictionaries, etc - and functions - loops, flow control, etc. - provide ample flexibility to get things done with scripts. Adding 3rd party packages to our base installation can vastly simplify and expand what we can do with our Python foundation, and beyond that, we see that there's a world of web services and APIs that extends our abilities much, much further!
+Knowing Python has opened many doors for accessing and analyzing data. The built-in Python data types  - numbers, strings, lists, dictionaries, etc. - and functions - loops, flow control, etc. - provide ample flexibility to get things done with scripts. Adding 3rd party packages to our base installation can vastly simplify and expand what we can do with our Python foundation, and beyond that, we see that there's a world of web services and APIs that extends our abilities much, much further!
 
-Up next, we'll concentrate on what to do with all these data: how to manage large datasets in Python (with Numpy, Pandas, and Geopandas), and also how to communicate with these data with more Python packages (matplotlib, seaborn, and gglot) as well as more APIs (leaflet/folium, google maps). And finally we'll examine frameworks for putting all these components together to assemble some handy interactive apps with plotly, dash, and r-shiny!
+Up next, we'll concentrate on what to do with all these data: how to manage large datasets in Python (with Numpy, Pandas, and Geopandas), and also how to communicate with these data with more Python packages (matplotlib, seaborn, and gglot) as well as more APIs (leaflet/folium, google maps). And finally (time permitting) we'll examine frameworks for putting all these components together to assemble some handy interactive apps with plotly, dash, and r-shiny!
