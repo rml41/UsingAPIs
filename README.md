@@ -1,20 +1,10 @@
 ---
 Title: Web Services and APIs
 Author: John Fay
-Date: Fall 2019
+Date: Fall 2020
 ---
 
-[TOC]
-
 # Using APIs
-
-In 2003 I attended an ESRI workshop at a Hyatt Hotel in downtown San Francisco. ESRI wanted to demonstrate some new powerful network server technology – their Internet Mapping System or [ArcIMS](http://en.wikipedia.org/wiki/ArcIMS). Their presentation flopped because the hotel’s network was not as fast as they had expected and drawing the data on screen was painfully slow. Using networked data was an interesting idea, but my takeaway was that it was always best to have all the resources you needed to get a spatial analysis done stored on the local desktop. 
-
-Now, of course, high speed internet access is almost taken for granted. If you don’t have a smartphone, tablet, or ultraportable laptop with a data plan, then it’s likely that a free Wi-Fi hotspot is not too far away. And the data transfer speeds are far superior to what was available a decade ago. What was lacking in the ESRI presentation I attended years ago is now abundant, and what we see is a huge growth in web-enabled or “cloud-based” computing. 
-
-The impact on spatial analysis is that we no longer need local copies of data on our machines to run analyses. Instead, we can simply connect to various data sources located on remote servers and query, clip, overlay, or mask these datasets directly. This offers the huge advantage of centralized management of these datasets; with everyone tapping into the same central dataset, you ensure that edits to the dataset are propagated to all users. It also makes doing spatial analyses on local machines much more lightweight since we don’t have to download entire datasets just to do analyses that require a small section of them.
-
-In the past few years, however, servers have been going beyond just providing live links to data: they are now providing services. In other words, instead of using the tools contained in desktop ArcGIS we can use tools served up in the Cloud. If we want to calculate the average slope within a specified distance of certain streams, we can instruct a set of servers to find the elevation and stream data, to buffer the stream, calculate the slope with that buffered distance and report the average. All the processing is done on the server(s) hosting the service, meaning we don’t even need a beefy computer to get it done; a smart phone will do! 
 
 In this tutorial we explore the application of web services to spatial analysis. It’s an exciting and rapidly evolving field: what’s “cutting edge” this year is likely to be old news the next. However, getting in on this technology at an early stage should provide you with a more robust understanding of how it works and thus how you can utilize its power most effectively. At this stage in the development of web services and cloud-based GIS, however, you’ll need to be prepared for bugs and limited documentation. It’s all part of the excitement of being at the forefront of technology. 
 
